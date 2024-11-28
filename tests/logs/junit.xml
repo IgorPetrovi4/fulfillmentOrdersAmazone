@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/var/www/html/phpunit.xml" tests="3" assertions="6" errors="0" failures="1" skipped="0" time="0.020901">
+    <testsuite name="Default" tests="3" assertions="6" errors="0" failures="1" skipped="0" time="0.020901">
+      <testsuite name="Tests\Service\AmazonShippingServiceTest" file="/var/www/html/tests/Service/AmazonShippingServiceTest.php" tests="3" assertions="6" errors="0" failures="1" skipped="0" time="0.020901">
+        <testcase name="testShipSuccessfully" file="/var/www/html/tests/Service/AmazonShippingServiceTest.php" line="26" class="Tests\Service\AmazonShippingServiceTest" classname="Tests.Service.AmazonShippingServiceTest" assertions="2" time="0.013476"/>
+        <testcase name="testShipWithInvalidOrder" file="/var/www/html/tests/Service/AmazonShippingServiceTest.php" line="43" class="Tests\Service\AmazonShippingServiceTest" classname="Tests.Service.AmazonShippingServiceTest" assertions="2" time="0.006560">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Service\AmazonShippingServiceTest::testShipWithInvalidOrder
+Failed asserting that exception message 'Order file not found: /var/www/html/src/Data/../../mock/order.99999.json' contains 'Order 99999 not found !'.</failure>
+        </testcase>
+        <testcase name="testShipWithoutProducts" file="/var/www/html/tests/Service/AmazonShippingServiceTest.php" line="59" class="Tests\Service\AmazonShippingServiceTest" classname="Tests.Service.AmazonShippingServiceTest" assertions="2" time="0.000866"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

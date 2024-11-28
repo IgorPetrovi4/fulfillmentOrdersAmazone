@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\Client\AmazonApiClient;
+use App\Config\AmazonApiConfig;
+use App\Repository\FileBuyerRepository;
+use Symfony\Component\Console\Application;
+use App\Command\ShipOrderCommand;
+use App\Service\AmazonShippingService;
+
+$amazonApiClient = new AmazonApiClient(
+    'https://sellingpartnerapi-eu.amazon.com',
+    AmazonApiConfig::getInstance()->getConfig()
+);
+
+$dataPath = __DIR__ . '/../mock';
+$bayerRepository = new FileBuyerRepository($dataPath);
+
+$application = new Application();
+$shippingService = new AmazonShippingService($amazonApiClient);
+$application->add(new ShipOrderCommand($shippingService, $bayerRepository));
+
+$application->run();
